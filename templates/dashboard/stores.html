@@ -1,0 +1,105 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Stores - BiashAI{% endblock %}
+
+{% block content %}
+<div class="page-header mb-4">
+    <h1 class="page-title">Browse Stores</h1>
+    <p class="page-subtitle">Find a BiashAI store near you</p>
+</div>
+
+<!-- Filters -->
+<div class="card border-0 shadow-sm mb-4">
+    <div class="card-body">
+        <form method="get" action="{% url 'stores' %}">
+            <div class="row g-3">
+                <div class="col-md-4">
+                    <label class="form-label">Search</label>
+                    <input type="text" name="search" class="form-control" placeholder="Search by name or location" value="{{ request.GET.search }}">
+                </div>
+                <div class="col-md-3">
+                    <label class="form-label">County</label>
+                    <select name="county" class="form-select">
+                        <option value="">All Counties</option>
+                        {% for county in counties %}
+                            <option value="{{ county.id }}" {% if request.GET.county == county.id|stringformat:"s" %}selected{% endif %}>
+                                {{ county.name }}
+                            </option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="col-md-3">
+                    <label class="form-label">Store Type</label>
+                    <select name="store_type" class="form-select">
+                        <option value="">All Types</option>
+                        {% for value, label in store_types %}
+                            <option value="{{ value }}" {% if request.GET.store_type == value %}selected{% endif %}>
+                                {{ label }}
+                            </option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="col-md-2">
+                    <label class="form-label">&nbsp;</label>
+                    <button type="submit" class="btn btn-primary w-100">
+                        <i class="bi bi-search me-2"></i>Filter
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- Stores Grid -->
+<div class="row g-4">
+    {% for store in stores %}
+    <div class="col-md-6 col-lg-4">
+        <div class="card border-0 shadow-sm h-100">
+            <div class="card-body">
+                <div class="d-flex justify-content-between align-items-start mb-3">
+                    <div>
+                        <h5 class="fw-bold mb-1">{{ store.name }}</h5>
+                        <span class="badge badge-primary">{{ store.get_store_type_display }}</span>
+                    </div>
+                    {% if store.is_24_hours %}
+                        <span class="badge bg-success">24/7</span>
+                    {% endif %}
+                </div>
+
+                <div class="mb-3">
+                    <p class="mb-2"><i class="bi bi-geo-alt text-primary me-2"></i>{{ store.address }}</p>
+                    <p class="mb-2"><i class="bi bi-telephone text-primary me-2"></i>{{ store.phone_number }}</p>
+                    <p class="mb-0">
+                        <i class="bi bi-clock text-primary me-2"></i>
+                        {% if store.is_24_hours %}
+                            Open 24 Hours
+                        {% else %}
+                            {{ store.opening_time|time:"g:i A" }} - {{ store.closing_time|time:"g:i A" }}
+                        {% endif %}
+                    </p>
+                </div>
+
+                <div class="d-grid gap-2">
+                    <a href="{% url 'store_detail' store.id %}" class="btn btn-outline-primary">
+                        <i class="bi bi-info-circle me-2"></i>View Details
+                    </a>
+                    {% if user.is_authenticated %}
+                        <a href="{% url 'start_shopping_session' store.id %}" class="btn btn-primary">
+                            <i class="bi bi-cart-plus me-2"></i>Start Shopping
+                        </a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+    {% empty %}
+    <div class="col-12">
+        <div class="text-center py-5">
+            <i class="bi bi-shop text-muted" style="font-size: 5rem;"></i>
+            <p class="text-muted mt-3">No stores found matching your criteria</p>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

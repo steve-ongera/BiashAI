@@ -1,0 +1,183 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Home - BiashAI | Revolutionary Face Recognition Shopping{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<div class="hero-section bg-gradient-primary text-white py-5 mb-5" style="background: linear-gradient(135deg, #4F46E5 0%, #7C3AED 100%); min-height: 500px;">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <h1 class="display-3 fw-bold mb-4">Shop Smart,<br>Pay Fast,<br>Live Free</h1>
+                <p class="lead mb-4">Experience the future of shopping with BiashAI's revolutionary face recognition technology. No cards, no cash, just your face.</p>
+                <div class="d-flex gap-3">
+                    {% if user.is_authenticated %}
+                        <a href="{% url 'stores' %}" class="btn btn-light btn-lg">
+                            <i class="bi bi-shop me-2"></i>Browse Stores
+                        </a>
+                        <a href="{% url 'customer_dashboard' %}" class="btn btn-outline-light btn-lg">
+                            <i class="bi bi-speedometer2 me-2"></i>My Dashboard
+                        </a>
+                    {% else %}
+                        <a href="{% url 'register' %}" class="btn btn-light btn-lg">
+                            <i class="bi bi-person-plus me-2"></i>Get Started
+                        </a>
+                        <a href="{% url 'login' %}" class="btn btn-outline-light btn-lg">
+                            <i class="bi bi-box-arrow-in-right me-2"></i>Sign In
+                        </a>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="col-lg-6 text-center">
+                <i class="bi bi-person-badge" style="font-size: 15rem; opacity: 0.2;"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Stats Section -->
+<div class="container mb-5">
+    <div class="row g-4">
+        <div class="col-md-4">
+            <div class="card text-center border-0 shadow-sm">
+                <div class="card-body p-4">
+                    <div class="mb-3">
+                        <i class="bi bi-shop text-primary" style="font-size: 3rem;"></i>
+                    </div>
+                    <h3 class="fw-bold">{{ total_stores }}</h3>
+                    <p class="text-muted mb-0">Active Stores</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card text-center border-0 shadow-sm">
+                <div class="card-body p-4">
+                    <div class="mb-3">
+                        <i class="bi bi-box-seam text-success" style="font-size: 3rem;"></i>
+                    </div>
+                    <h3 class="fw-bold">{{ total_products }}+</h3>
+                    <p class="text-muted mb-0">Products Available</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card text-center border-0 shadow-sm">
+                <div class="card-body p-4">
+                    <div class="mb-3">
+                        <i class="bi bi-people text-info" style="font-size: 3rem;"></i>
+                    </div>
+                    <h3 class="fw-bold">{{ active_sessions }}</h3>
+                    <p class="text-muted mb-0">Shopping Now</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Features Section -->
+<div class="container mb-5">
+    <div class="text-center mb-5">
+        <h2 class="fw-bold mb-3">How BiashAI Works</h2>
+        <p class="text-muted">Three simple steps to a seamless shopping experience</p>
+    </div>
+    
+    <div class="row g-4">
+        <div class="col-md-4">
+            <div class="card border-0 shadow-sm h-100">
+                <div class="card-body p-4">
+                    <div class="d-flex align-items-center mb-3">
+                        <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center" style="width: 50px; height: 50px;">
+                            <span class="fw-bold">1</span>
+                        </div>
+                        <h5 class="fw-bold mb-0 ms-3">Register Your Face</h5>
+                    </div>
+                    <p class="text-muted">Quick and secure facial recognition setup. Your biometric data is encrypted and never shared.</p>
+                    <a href="{% url 'register' %}" class="btn btn-outline-primary btn-sm">Get Started <i class="bi bi-arrow-right ms-2"></i></a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-4">
+            <div class="card border-0 shadow-sm h-100">
+                <div class="card-body p-4">
+                    <div class="d-flex align-items-center mb-3">
+                        <div class="bg-success text-white rounded-circle d-flex align-items-center justify-content-center" style="width: 50px; height: 50px;">
+                            <span class="fw-bold">2</span>
+                        </div>
+                        <h5 class="fw-bold mb-0 ms-3">Shop & Pick</h5>
+                    </div>
+                    <p class="text-muted">Walk into any BiashAI store, pick your items. Our AI cameras track what you take automatically.</p>
+                    <a href="{% url 'stores' %}" class="btn btn-outline-success btn-sm">Find Stores <i class="bi bi-arrow-right ms-2"></i></a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-4">
+            <div class="card border-0 shadow-sm h-100">
+                <div class="card-body p-4">
+                    <div class="d-flex align-items-center mb-3">
+                        <div class="bg-info text-white rounded-circle d-flex align-items-center justify-content-center" style="width: 50px; height: 50px;">
+                            <span class="fw-bold">3</span>
+                        </div>
+                        <h5 class="fw-bold mb-0 ms-3">Walk Out & Pay</h5>
+                    </div>
+                    <p class="text-muted">Just walk out! Payment is processed automatically via M-Pesa. Receipt sent instantly.</p>
+                    <a href="{% url 'how_it_works' %}" class="btn btn-outline-info btn-sm">Learn More <i class="bi bi-arrow-right ms-2"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Payment Methods -->
+<div class="bg-light py-5 mb-5">
+    <div class="container">
+        <div class="text-center mb-4">
+            <h3 class="fw-bold mb-3">Supported Payment Methods</h3>
+            <p class="text-muted">All major Kenyan payment platforms supported</p>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-md-10">
+                <div class="d-flex justify-content-around align-items-center flex-wrap gap-4">
+                    <div class="text-center">
+                        <i class="bi bi-phone" style="font-size: 3rem; color: #10B981;"></i>
+                        <p class="mb-0 mt-2 fw-semibold">M-Pesa</p>
+                    </div>
+                    <div class="text-center">
+                        <i class="bi bi-phone" style="font-size: 3rem; color: #EF4444;"></i>
+                        <p class="mb-0 mt-2 fw-semibold">Airtel Money</p>
+                    </div>
+                    <div class="text-center">
+                        <i class="bi bi-credit-card" style="font-size: 3rem; color: #3B82F6;"></i>
+                        <p class="mb-0 mt-2 fw-semibold">Cards</p>
+                    </div>
+                    <div class="text-center">
+                        <i class="bi bi-bank" style="font-size: 3rem; color: #8B5CF6;"></i>
+                        <p class="mb-0 mt-2 fw-semibold">Bank Account</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- CTA Section -->
+<div class="container text-center mb-5">
+    <div class="card border-0 shadow-lg bg-gradient" style="background: linear-gradient(135deg, #4F46E5 0%, #7C3AED 100%);">
+        <div class="card-body p-5 text-white">
+            <h2 class="fw-bold mb-3">Ready to Experience the Future?</h2>
+            <p class="lead mb-4">Join thousands of Kenyans shopping smarter with BiashAI</p>
+            {% if not user.is_authenticated %}
+                <a href="{% url 'register' %}" class="btn btn-light btn-lg">
+                    <i class="bi bi-person-plus me-2"></i>Create Free Account
+                </a>
+            {% else %}
+                <a href="{% url 'stores' %}" class="btn btn-light btn-lg">
+                    <i class="bi bi-shop me-2"></i>Start Shopping Now
+                </a>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}
