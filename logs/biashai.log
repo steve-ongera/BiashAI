@@ -1,0 +1,291 @@
+INFO 2026-02-05 09:48:07,301 autoreload Watching for file changes with StatReloader
+INFO 2026-02-05 09:48:20,863 basehttp "GET / HTTP/1.1" 200 12068
+INFO 2026-02-05 09:48:26,662 basehttp "GET /admin/ HTTP/1.1" 302 0
+INFO 2026-02-05 09:48:27,102 basehttp "GET /admin/login/?next=/admin/ HTTP/1.1" 200 4174
+INFO 2026-02-05 09:48:27,183 basehttp "GET /static/admin/css/dark_mode.css HTTP/1.1" 200 2808
+INFO 2026-02-05 09:48:27,186 basehttp "GET /static/admin/css/base.css HTTP/1.1" 200 22120
+INFO 2026-02-05 09:48:27,198 basehttp "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 200 2810
+INFO 2026-02-05 09:48:27,201 basehttp "GET /static/admin/css/login.css HTTP/1.1" 200 951
+INFO 2026-02-05 09:48:27,220 basehttp "GET /static/admin/css/responsive.css HTTP/1.1" 200 16565
+INFO 2026-02-05 09:48:27,264 basehttp "GET /static/admin/js/theme.js HTTP/1.1" 200 1653
+INFO 2026-02-05 09:48:27,304 basehttp "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 200 3063
+ERROR 2026-02-05 09:48:44,360 log Internal Server Error: /admin/login/
+Traceback (most recent call last):
+  File "C:\Users\gadaf\AppData\Roaming\Python\Python314\site-packages\django_redis\cache.py", line 29, in _decorator
+    return method(self, *args, **kwargs)
+  File "C:\Users\gadaf\AppData\Roaming\Python\Python314\site-packages\django_redis\cache.py", line 138, in has_key
+    return self.client.has_key(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\gadaf\AppData\Roaming\Python\Python314\site-packages\django_redis\client\default.py", line 740, in has_key
+    raise ConnectionInterrupted(connection=client) from e
+django_redis.exceptions.ConnectionInterrupted: Redis ConnectionError: Error 10061 connecting to localhost:6379. No connection could be made because the target machine actively refused it.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\gadaf\AppData\Roaming\Python\Python314\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\gadaf\AppData\Roaming\Python\Python314\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\gadaf\AppData\Roaming\Python\Python314\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\gadaf\AppData\Roaming\Python\Python314\site-packages\django\views\decorators\cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\gadaf\AppData\Roaming\Python\Python314\site-packages\django\contrib\admin\sites.py", line 449, in login
+    return LoginView.as_view(**defaults)(request)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\gadaf\AppData\Roaming\Python\Python314\site-packages\django\views\generic\base.py", line 105, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\gadaf\AppData\Roaming\Python\Python314\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\gadaf\AppData\Roaming\Python\Python314\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\gadaf\AppData\Roaming\Python\Python314\site-packages\django\views\decorators\debug.py", line 143, in sensitive_post_parameters_wrapper
+    return view(request, *args, **kwargs)
+  File "C:\Users\gadaf\AppData\Roaming\Python\Python314\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\gadaf\AppData\Roaming\Python\Python314\site-packages\django\utils\decorators.py", line 192, in _view_wrapper
+    result = _process_exception(request, e)
+  File "C:\Users\gadaf\AppData\Roaming\Python\Python314\site-packages\django\utils\decorators.py", line 190, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\gadaf\AppData\Roaming\Python\Python314\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\gadaf\AppData\Roaming\Python\Python314\site-packages\django\views\decorators\cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\gadaf\AppData\Roaming\Python\Python314\site-packages\django\contrib\auth\views.py", line 89, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\gadaf\AppData\Roaming\Python\Python314\site-packages\django\views\generic\base.py", line 144, in dispatch
+    return handler(request, *args, **kwargs)
+  File "C:\Users\gadaf\AppData\Roaming\Python\Python314\site-packages\django\views\generic\edit.py", line 151, in post
+    return self.form_valid(form)
+           ~~~~~~~~~~~~~~~^^^^^^
+  File "C:\Users\gadaf\AppData\Roaming\Python\Python314\site-packages\django\contrib\auth\views.py", line 108, in form_valid
+    auth_login(self.request, form.get_user())
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\gadaf\AppData\Roaming\Python\Python314\site-packages\django\contrib\auth\__init__.py", line 187, in login
+    request.session.cycle_key()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\gadaf\AppData\Roaming\Python\Python314\site-packages\django\contrib\sessions\backends\base.py", line 432, in cycle_key
+    self.create()
+    ~~~~~~~~~~~^^
+  File "C:\Users\gadaf\AppData\Roaming\Python\Python314\site-packages\django\contrib\sessions\backends\cache.py", line 55, in create
+    self._session_key = self._get_new_session_key()
+                        ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\gadaf\AppData\Roaming\Python\Python314\site-packages\django\contrib\sessions\backends\base.py", line 196, in _get_new_session_key
+    if not self.exists(session_key):
+           ~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\gadaf\AppData\Roaming\Python\Python314\site-packages\django\contrib\sessions\backends\cache.py", line 117, in exists
+    bool(session_key) and (self.cache_key_prefix + session_key) in self._cache
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\gadaf\AppData\Roaming\Python\Python314\site-packages\django\core\cache\backends\base.py", line 301, in __contains__
+    return self.has_key(key)
+           ~~~~~~~~~~~~^^^^^
+  File "C:\Users\gadaf\AppData\Roaming\Python\Python314\site-packages\django_redis\cache.py", line 36, in _decorator
+    raise e.__cause__  # noqa: B904
+    ^^^^^^^^^^^^^^^^^
+  File "C:\Users\gadaf\AppData\Roaming\Python\Python314\site-packages\django_redis\client\default.py", line 738, in has_key
+    return client.exists(key) == 1
+           ~~~~~~~~~~~~~^^^^^
+  File "C:\Users\gadaf\AppData\Roaming\Python\Python314\site-packages\redis\commands\core.py", line 1804, in exists
+    return self.execute_command("EXISTS", *names, keys=names)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\gadaf\AppData\Roaming\Python\Python314\site-packages\redis\client.py", line 657, in execute_command
+    return self._execute_command(*args, **options)
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\gadaf\AppData\Roaming\Python\Python314\site-packages\redis\client.py", line 663, in _execute_command
+    conn = self.connection or pool.get_connection()
+                              ~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\gadaf\AppData\Roaming\Python\Python314\site-packages\redis\utils.py", line 196, in wrapper
+    return func(*args, **kwargs)
+  File "C:\Users\gadaf\AppData\Roaming\Python\Python314\site-packages\redis\connection.py", line 2603, in get_connection
+    connection.connect()
+    ~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\gadaf\AppData\Roaming\Python\Python314\site-packages\redis\connection.py", line 846, in connect
+    self.connect_check_health(check_health=True)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\gadaf\AppData\Roaming\Python\Python314\site-packages\redis\connection.py", line 863, in connect_check_health
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 10061 connecting to localhost:6379. No connection could be made because the target machine actively refused it.
+ERROR 2026-02-05 09:48:44,396 basehttp "POST /admin/login/?next=/admin/ HTTP/1.1" 500 231534
+INFO 2026-02-05 09:52:12,619 autoreload D:\BACKUP\Complete Projects\BiashAI\BiashAI\settings.py changed, reloading.
+INFO 2026-02-05 09:52:15,841 autoreload Watching for file changes with StatReloader
+INFO 2026-02-05 09:52:37,877 basehttp "POST /admin/login/?next=/admin/ HTTP/1.1" 302 0
+INFO 2026-02-05 09:52:38,320 basehttp "GET /admin/ HTTP/1.1" 200 25470
+INFO 2026-02-05 09:52:38,353 basehttp "GET /static/admin/css/base.css HTTP/1.1" 304 0
+INFO 2026-02-05 09:52:38,354 basehttp "GET /static/admin/css/dark_mode.css HTTP/1.1" 304 0
+INFO 2026-02-05 09:52:38,362 basehttp "GET /static/admin/js/theme.js HTTP/1.1" 304 0
+INFO 2026-02-05 09:52:38,363 basehttp "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 304 0
+INFO 2026-02-05 09:52:38,366 basehttp "GET /static/admin/css/responsive.css HTTP/1.1" 304 0
+INFO 2026-02-05 09:52:38,372 basehttp "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 304 0
+INFO 2026-02-05 09:52:38,387 basehttp "GET /static/admin/css/dashboard.css HTTP/1.1" 200 441
+INFO 2026-02-05 09:52:38,411 basehttp "GET /static/admin/img/icon-changelink.svg HTTP/1.1" 200 380
+INFO 2026-02-05 09:52:38,417 basehttp "GET /static/admin/img/icon-addlink.svg HTTP/1.1" 200 331
+ERROR 2026-02-05 09:52:44,844 log Internal Server Error: /admin/django_celery_beat/clockedschedule/
+Traceback (most recent call last):
+  File "C:\Users\gadaf\AppData\Roaming\Python\Python314\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+psycopg2.errors.UndefinedTable: relation "django_celery_beat_clockedschedule" does not exist
+LINE 1: SELECT COUNT(*) AS "__count" FROM "django_celery_beat_clocke...
+                                          ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\gadaf\AppData\Roaming\Python\Python314\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\gadaf\AppData\Roaming\Python\Python314\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\gadaf\AppData\Roaming\Python\Python314\site-packages\django\contrib\admin\options.py", line 719, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\gadaf\AppData\Roaming\Python\Python314\site-packages\django\utils\decorators.py", line 192, in _view_wrapper
+    result = _process_exception(request, e)
+  File "C:\Users\gadaf\AppData\Roaming\Python\Python314\site-packages\django\utils\decorators.py", line 190, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\gadaf\AppData\Roaming\Python\Python314\site-packages\django\views\decorators\cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\gadaf\AppData\Roaming\Python\Python314\site-packages\django\contrib\admin\sites.py", line 246, in inner
+    return view(request, *args, **kwargs)
+  File "C:\Users\gadaf\AppData\Roaming\Python\Python314\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\gadaf\AppData\Roaming\Python\Python314\site-packages\django\utils\decorators.py", line 192, in _view_wrapper
+    result = _process_exception(request, e)
+  File "C:\Users\gadaf\AppData\Roaming\Python\Python314\site-packages\django\utils\decorators.py", line 190, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\gadaf\AppData\Roaming\Python\Python314\site-packages\django\contrib\admin\options.py", line 2024, in changelist_view
+    cl = self.get_changelist_instance(request)
+  File "C:\Users\gadaf\AppData\Roaming\Python\Python314\site-packages\django\contrib\admin\options.py", line 867, in get_changelist_instance
+    return ChangeList(
+        request,
+    ...<12 lines>...
+        self.search_help_text,
+    )
+  File "C:\Users\gadaf\AppData\Roaming\Python\Python314\site-packages\django\contrib\admin\views\main.py", line 146, in __init__
+    self.get_results(request)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\gadaf\AppData\Roaming\Python\Python314\site-packages\django\contrib\admin\views\main.py", line 313, in get_results
+    result_count = paginator.count
+                   ^^^^^^^^^^^^^^^
+  File "C:\Users\gadaf\AppData\Roaming\Python\Python314\site-packages\django\utils\functional.py", line 47, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+                                         ~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\gadaf\AppData\Roaming\Python\Python314\site-packages\django\core\paginator.py", line 110, in count
+    return c()
+  File "C:\Users\gadaf\AppData\Roaming\Python\Python314\site-packages\django\db\models\query.py", line 606, in count
+    return self.query.get_count(using=self.db)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\gadaf\AppData\Roaming\Python\Python314\site-packages\django\db\models\sql\query.py", line 646, in get_count
+    return obj.get_aggregation(using, {"__count": Count("*")})["__count"]
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\gadaf\AppData\Roaming\Python\Python314\site-packages\django\db\models\sql\query.py", line 628, in get_aggregation
+    result = compiler.execute_sql(SINGLE)
+  File "C:\Users\gadaf\AppData\Roaming\Python\Python314\site-packages\django\db\models\sql\compiler.py", line 1623, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\gadaf\AppData\Roaming\Python\Python314\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\gadaf\AppData\Roaming\Python\Python314\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\gadaf\AppData\Roaming\Python\Python314\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\gadaf\AppData\Roaming\Python\Python314\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\gadaf\AppData\Roaming\Python\Python314\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\gadaf\AppData\Roaming\Python\Python314\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+django.db.utils.ProgrammingError: relation "django_celery_beat_clockedschedule" does not exist
+LINE 1: SELECT COUNT(*) AS "__count" FROM "django_celery_beat_clocke...
+                                          ^
+
+ERROR 2026-02-05 09:52:44,882 basehttp "GET /admin/django_celery_beat/clockedschedule/ HTTP/1.1" 500 196989
+INFO 2026-02-05 09:52:52,142 basehttp "GET /admin/pos_ai/dailysalesreport/ HTTP/1.1" 200 89097
+INFO 2026-02-05 09:52:52,225 basehttp "GET /static/admin/css/changelists.css HTTP/1.1" 200 6878
+INFO 2026-02-05 09:52:52,238 basehttp "GET /static/admin/js/jquery.init.js HTTP/1.1" 200 347
+INFO 2026-02-05 09:52:52,265 basehttp "GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 200 9777
+INFO 2026-02-05 09:52:52,280 basehttp "GET /static/admin/js/core.js HTTP/1.1" 200 6208
+INFO 2026-02-05 09:52:52,328 basehttp "GET /static/admin/js/urlify.js HTTP/1.1" 200 7887
+INFO 2026-02-05 09:52:52,340 basehttp "GET /static/admin/js/actions.js HTTP/1.1" 200 8076
+INFO 2026-02-05 09:52:52,340 basehttp "GET /static/admin/js/prepopulate.js HTTP/1.1" 200 1531
+INFO 2026-02-05 09:52:52,355 basehttp "GET /static/admin/img/search.svg HTTP/1.1" 200 458
+INFO 2026-02-05 09:52:52,447 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2026-02-05 09:52:52,465 basehttp "GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 200 285314
+INFO 2026-02-05 09:52:52,529 basehttp "GET /static/admin/js/filters.js HTTP/1.1" 200 978
+INFO 2026-02-05 09:52:52,693 basehttp "GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 200 325171
+INFO 2026-02-05 09:52:52,752 basehttp "GET /static/admin/img/tooltag-add.svg HTTP/1.1" 200 331
+INFO 2026-02-05 09:52:52,758 basehttp "GET /static/admin/img/icon-viewlink.svg HTTP/1.1" 200 581
+INFO 2026-02-05 09:52:52,762 basehttp "GET /static/admin/img/sorting-icons.svg HTTP/1.1" 200 1097
+INFO 2026-02-05 09:53:12,187 basehttp "GET /admin/pos_ai/customuser/ HTTP/1.1" 200 67687
+INFO 2026-02-05 09:53:12,256 basehttp "GET /static/admin/img/icon-yes.svg HTTP/1.1" 200 436
+INFO 2026-02-05 09:53:12,261 basehttp "GET /static/admin/img/icon-no.svg HTTP/1.1" 200 560
+INFO 2026-02-05 09:53:12,378 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2026-02-05 09:53:22,973 basehttp "GET /admin/pos_ai/paymentaccount/ HTTP/1.1" 200 63444
+INFO 2026-02-05 09:53:23,158 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2026-02-05 09:53:26,118 basehttp "GET /admin/pos_ai/paymentaccount/fdfc89f6-c6a3-41f5-828e-732f234da490/change/ HTTP/1.1" 200 36348
+INFO 2026-02-05 09:53:26,179 basehttp "GET /static/admin/css/forms.css HTTP/1.1" 200 8525
+INFO 2026-02-05 09:53:26,185 basehttp "GET /static/admin/js/prepopulate_init.js HTTP/1.1" 200 586
+INFO 2026-02-05 09:53:26,198 basehttp "GET /static/admin/css/widgets.css HTTP/1.1" 200 11973
+INFO 2026-02-05 09:53:26,225 basehttp "GET /static/admin/js/change_form.js HTTP/1.1" 200 606
+INFO 2026-02-05 09:53:26,411 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2026-02-05 09:53:33,896 basehttp "GET /admin/pos_ai/paymentaccount/ HTTP/1.1" 200 63444
+INFO 2026-02-05 09:53:39,665 basehttp "GET /admin/pos_ai/facialdata/ HTTP/1.1" 200 47590
+INFO 2026-02-05 09:53:39,847 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2026-02-05 09:53:43,333 basehttp "GET /admin/pos_ai/facialdata/ea9d6c27-48b6-4c5d-afe1-70077b7b8faa/change/ HTTP/1.1" 200 35863
+INFO 2026-02-05 09:53:43,507 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2026-02-05 09:54:47,564 basehttp "GET /admin/pos_ai/product/ HTTP/1.1" 200 109307
+INFO 2026-02-05 09:54:47,760 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2026-02-05 09:54:56,225 basehttp "GET /admin/pos_ai/product/f13e9e76-cc69-4a8f-b1f7-4a538a272eaa/change/ HTTP/1.1" 200 41767
+INFO 2026-02-05 09:54:56,342 basehttp "GET /static/admin/img/icon-deletelink.svg HTTP/1.1" 200 392
+INFO 2026-02-05 09:54:56,420 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2026-02-05 09:55:09,978 basehttp "GET /admin/pos_ai/product/ HTTP/1.1" 200 109307
+INFO 2026-02-05 09:55:10,171 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2026-02-05 09:58:59,993 basehttp "GET /admin/pos_ai/store/ HTTP/1.1" 200 36148
+INFO 2026-02-05 09:59:00,040 basehttp "GET /static/admin/css/base.css HTTP/1.1" 304 0
+INFO 2026-02-05 09:59:00,046 basehttp "GET /static/admin/css/dark_mode.css HTTP/1.1" 304 0
+INFO 2026-02-05 09:59:00,061 basehttp "GET /static/admin/js/theme.js HTTP/1.1" 304 0
+INFO 2026-02-05 09:59:00,062 basehttp "GET /static/admin/css/changelists.css HTTP/1.1" 304 0
+INFO 2026-02-05 09:59:00,061 basehttp "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 304 0
+INFO 2026-02-05 09:59:00,066 basehttp "GET /static/admin/js/jquery.init.js HTTP/1.1" 304 0
+INFO 2026-02-05 09:59:00,066 basehttp "GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 304 0
+INFO 2026-02-05 09:59:00,068 basehttp "GET /static/admin/css/responsive.css HTTP/1.1" 304 0
+INFO 2026-02-05 09:59:00,078 basehttp "GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 304 0
+INFO 2026-02-05 09:59:00,086 basehttp "GET /static/admin/js/core.js HTTP/1.1" 304 0
+INFO 2026-02-05 09:59:00,087 basehttp "GET /static/admin/js/actions.js HTTP/1.1" 304 0
+INFO 2026-02-05 09:59:00,089 basehttp "GET /static/admin/js/urlify.js HTTP/1.1" 304 0
+INFO 2026-02-05 09:59:00,089 basehttp "GET /static/admin/js/prepopulate.js HTTP/1.1" 304 0
+INFO 2026-02-05 09:59:00,090 basehttp "GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 304 0
+INFO 2026-02-05 09:59:00,096 basehttp "GET /static/admin/img/search.svg HTTP/1.1" 304 0
+INFO 2026-02-05 09:59:00,096 basehttp "GET /static/admin/img/icon-yes.svg HTTP/1.1" 304 0
+INFO 2026-02-05 09:59:00,102 basehttp "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 304 0
+INFO 2026-02-05 09:59:00,110 basehttp "GET /static/admin/js/filters.js HTTP/1.1" 304 0
+INFO 2026-02-05 09:59:00,222 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2026-02-05 09:59:06,214 basehttp "GET /admin/pos_ai/store/147de6b4-8d8b-4aa6-8c2d-0ff2a2b77dc8/change/ HTTP/1.1" 200 44234
+INFO 2026-02-05 09:59:06,265 basehttp "GET /static/admin/css/forms.css HTTP/1.1" 304 0
+INFO 2026-02-05 09:59:06,286 basehttp "GET /static/admin/css/widgets.css HTTP/1.1" 304 0
+INFO 2026-02-05 09:59:06,286 basehttp "GET /static/admin/js/prepopulate_init.js HTTP/1.1" 304 0
+INFO 2026-02-05 09:59:06,315 basehttp "GET /static/admin/js/calendar.js HTTP/1.1" 200 9141
+INFO 2026-02-05 09:59:06,322 basehttp "GET /static/admin/js/admin/DateTimeShortcuts.js HTTP/1.1" 200 19319
+INFO 2026-02-05 09:59:06,331 basehttp "GET /static/admin/img/icon-changelink.svg HTTP/1.1" 304 0
+INFO 2026-02-05 09:59:06,339 basehttp "GET /static/admin/img/icon-addlink.svg HTTP/1.1" 304 0
+INFO 2026-02-05 09:59:06,346 basehttp "GET /static/admin/img/icon-deletelink.svg HTTP/1.1" 304 0
+INFO 2026-02-05 09:59:06,353 basehttp "GET /static/admin/img/icon-viewlink.svg HTTP/1.1" 304 0
+INFO 2026-02-05 09:59:06,360 basehttp "GET /static/admin/js/change_form.js HTTP/1.1" 304 0
+INFO 2026-02-05 09:59:06,428 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2026-02-05 09:59:06,516 basehttp "GET /static/admin/img/icon-clock.svg HTTP/1.1" 200 677
+INFO 2026-02-05 09:59:06,517 basehttp "GET /static/admin/img/icon-calendar.svg HTTP/1.1" 200 1086
+INFO 2026-02-05 10:11:15,812 autoreload D:\BACKUP\Complete Projects\BiashAI\BiashAI\urls.py changed, reloading.
+INFO 2026-02-05 10:11:18,913 autoreload Watching for file changes with StatReloader
+INFO 2026-02-05 10:11:41,129 autoreload D:\BACKUP\Complete Projects\BiashAI\BiashAI\urls.py changed, reloading.
+INFO 2026-02-05 10:11:44,823 autoreload Watching for file changes with StatReloader
