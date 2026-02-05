@@ -26,6 +26,21 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    
+    # Third-party apps
+    'rest_framework',
+    'rest_framework_simplejwt',
+    'corsheaders',
+    'django_filters',
+    'drf_yasg',
+    'phonenumber_field',
+    'storages',
+    'import_export',
+    'rangefilter',
+    'django_celery_beat',
+    'django_celery_results',
+    
+    
     'pos_ai',
 ]
 
